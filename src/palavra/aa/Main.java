@@ -76,7 +76,7 @@ public class Main{
         painel.add(text3);
         painel.add(text4);
 
-//        home.add(painel2);
+        home.add(painel2);
         home.add(painel);
         home.setVisible(true);
     }
