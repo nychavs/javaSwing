@@ -6,23 +6,21 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Main{
+    public static JTextField text1, text2, text3, text4;
+    public static JTextField text5, text6, text7, text8;
+    public static void main(String[] args) throws IOException {
 
-    public static void main(String[] args) {
+        Palavras palavra = new Palavras();
+        palavra.sortearPalavra();
+
         JFrame home = new JFrame("java swing");
         JPanel painel = new JPanel();
         JPanel painel2 = new JPanel();
-
-        ArrayList<String> teste = new ArrayList<>();
-        teste.add("nada");
-        teste.add("lara");
-
-        String palavra = teste.get(1);
-        String[] palavraDividida = palavra.split("");
-        System.out.println(Arrays.toString(palavraDividida));
 
         painel.setSize(200,200);
         painel.setLayout(new GridLayout());
@@ -34,15 +32,16 @@ public class Main{
         home.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 //        PRIMEIRA LINHA
-        JTextField text1 = new JTextField("");
-        JTextField text2 = new JTextField("");
-        JTextField text3 = new JTextField("");
-        JTextField text4 = new JTextField("");
+        text1 = new JTextField("");
+        text2 = new JTextField("");
+        text3 = new JTextField("");
+        text4 = new JTextField("");
+
 //        SEGUNDA LINHA (ARRUMAR LAYOUT)
-        JTextField text5 = new JTextField("");
-        JTextField text6 = new JTextField("");
-        JTextField text7 = new JTextField("");
-        JTextField text8 = new JTextField("");
+        text5 = new JTextField("");
+        text6 = new JTextField("");
+        text7 = new JTextField("");
+        text8 = new JTextField("");
 
         Border normalBorder = new LineBorder(Color.BLACK, 2, true);
 
@@ -53,18 +52,16 @@ public class Main{
         text3.setBorder(normalBorder);
         text4.setBorder(normalBorder);
 
+        Validador validar = new Validador();
+        // PROVAVELMENTE VOU TROCAR O ACTION LISTENER POR LAMBDA
+        // AI EU CONSIGO USAR UM METODO SÓ PARA TODOS OS OBJETOS DE JFIELD
         ActionListener acao = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String letra1 = text1.getText();
-                if (letra1.equalsIgnoreCase(palavraDividida[0])){
-                    text1.setBackground(Color.green);
-                }
-                else{
-                    text1.setBackground(Color.red);
-                }
+                validar.validar();
             }
         };
+
         text1.addActionListener(acao);
         painel2.add(text5);
         painel2.add(text6);
