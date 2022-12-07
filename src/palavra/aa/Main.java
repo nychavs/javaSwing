@@ -38,7 +38,7 @@ public class Main{
         JTextField text2 = new JTextField("");
         JTextField text3 = new JTextField("");
         JTextField text4 = new JTextField("");
-//        SEGUNDA LINHA
+//        SEGUNDA LINHA (ARRUMAR LAYOUT)
         JTextField text5 = new JTextField("");
         JTextField text6 = new JTextField("");
         JTextField text7 = new JTextField("");
